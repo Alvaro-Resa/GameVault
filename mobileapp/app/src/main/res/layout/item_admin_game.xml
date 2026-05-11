@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardBackgroundColor="@color/gv_card_background"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imgAdminGame"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_dark_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/txtAdminGameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/gv_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdminDeleteGame"
+            app:layout_constraintStart_toEndOf="@id/imgAdminGame"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Last of Us Part II" />
+
+        <TextView
+            android:id="@+id/txtAdminGameDev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/gv_text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdminDeleteGame"
+            app:layout_constraintStart_toEndOf="@id/imgAdminGame"
+            app:layout_constraintTop_toBottomOf="@id/txtAdminGameTitle"
+            tools:text="Naughty Dog" />
+
+        <ImageView
+            android:id="@+id/btnAdminDeleteGame"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#F44336" />
+
+        <ImageView
+            android:id="@+id/btnAdminEditGame"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdminDeleteGame"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gv_text_primary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gv_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLine">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="40dp">
+
+            <!-- Profile Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/gv_text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_red_line" />
+
+            <!-- Guest Mode Banner -->
+            <LinearLayout
+                android:id="@+id/layoutGuest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@android:drawable/ic_dialog_info"
+                    app:tint="@color/gv_text_secondary"
+                    android:layout_marginBottom="16dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log in to view your profile"
+                    android:textColor="@color/gv_text_primary"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="24dp" />
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:text="Log In"
+                    android:backgroundTint="@color/gv_red_glow"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+
+            <!-- Authenticated Profile Content -->
+            <LinearLayout
+                android:id="@+id/layoutAuth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- User Info Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="32dp">
+
+                    <FrameLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp">
+                        <ImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_circle_red_stroke"
+                            android:scaleType="centerCrop" />
+                        <TextView
+                            android:id="@+id/txtInitials"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="AU"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="24dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="Admin User" />
+
+                        <TextView
+                            android:id="@+id/txtUserHandle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_secondary"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="4dp"
+                            tools:text="\@admin" />
+
+                        <TextView
+                            android:id="@+id/txtUserBio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No biography set."
+                            android:textColor="@color/gv_text_hint"
+                            android:textSize="12sp"
+                            android:maxLines="3"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Statistics Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statistics"
+                    android:textColor="@color/gv_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_red_line" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- Games in Library -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_dark_card"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_secondary"
+                            android:textSize="12sp"
+                            android:text="Games in Library" />
+                        <TextView
+                            android:id="@+id/txtStatGames"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"
+                            android:text="0" />
+                    </LinearLayout>
+
+                    <!-- Total Hours Played -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_dark_card"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_secondary"
+                            android:textSize="12sp"
+                            android:text="Total Hours Played" />
+                        <TextView
+                            android:id="@+id/txtStatHours"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"
+                            android:text="0" />
+                    </LinearLayout>
+
+                    <!-- Games Completed -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_dark_card"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_secondary"
+                            android:textSize="12sp"
+                            android:text="Games Completed" />
+                        <TextView
+                            android:id="@+id/txtStatCompleted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"
+                            android:text="0" />
+                    </LinearLayout>
+
+                    <!-- Reviews Written -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_dark_card"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_secondary"
+                            android:textSize="12sp"
+                            android:text="Reviews Written" />
+                        <TextView
+                            android:id="@+id/txtStatReviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gv_text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"
+                            android:text="0" />
+                    </LinearLayout>
+                </GridLayout>
+
+                <!-- My Reviews Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Reviews"
+                    android:textColor="@color/gv_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_red_line" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUserReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_review" />
+
+                <TextView
+                    android:id="@+id/btnViewAllReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="View All"
+                    android:textColor="@color/gv_red_glow"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="32dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
+
+                <!-- Settings Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textColor="@color/gv_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_red_line" />
+
+                <!-- Admin Panel Button -->
+                <LinearLayout
+                    android:id="@+id/btnAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_dark_card_red_stroke"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_secure"
+                        app:tint="@color/gv_text_primary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Admin Panel"
+                        android:textColor="@color/gv_text_primary"
+                        android:textSize="16sp"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+
+                <!-- Edit Profile Button -->
+                <LinearLayout
+                    android:id="@+id/btnEditProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_menu_edit"
+                        app:tint="@color/gv_text_primary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Profile"
+                        android:textColor="@color/gv_text_primary"
+                        android:textSize="16sp"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+
+                <!-- Log Out Button -->
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginBottom="32dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_lock_power_off"
+                        app:tint="@color/gv_text_primary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log Out"
+                        android:textColor="@color/gv_text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+
+                <!-- Footer Section -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/bg_red_line"
+                    android:layout_marginBottom="24dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btnContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacto"
+                        android:textColor="@color/gv_text_secondary"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:background="@color/gv_text_hint"
+                        android:layout_marginHorizontal="16dp" />
+
+                    <TextView
+                        android:id="@+id/btnPrivacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Privacidad"
+                        android:textColor="@color/gv_text_secondary"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="© 2026 GameVault. All rights reserved."
+                    android:textColor="@color/gv_text_hint"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Line -->
+    <View
+        android:id="@+id/bottomNavLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bg_red_line"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/gv_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- User Tab (ACTIVE) -->
+        <LinearLayout
+            android:id="@+id/btnNavUser"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/gv_red_glow" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="User"
+                android:textColor="@color/gv_red_glow"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Home Tab -->
+        <LinearLayout
+            android:id="@+id/btnNavHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="@color/gv_nav_inactive" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Home"
+                android:textColor="@color/gv_nav_inactive"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Library Tab -->
+        <LinearLayout
+            android:id="@+id/btnNavLibrary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="@color/gv_nav_inactive" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Library"
+                android:textColor="@color/gv_nav_inactive"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,639 @@
+--------- beginning of system
+04-07 12:58:14.406   986  1058 D ShellSplitScreen: logExit: no-op, mLoggerSessionId is null
+04-07 12:58:14.408   724  1856 I ActivityTaskManager: START u0 {xflg=0x4 cmp=com.example.gamevault/.MainActivity} with LAUNCH_MULTIPLE from uid 10229 (sr=46897923) (BAL_ALLOW_VISIBLE_WINDOW) result code=0
+--------- beginning of main
+04-07 12:58:14.427 20578 20578 D CompatChangeReporter: Compat change id reported: 309578419; UID 10229; state: ENABLED
+04-07 12:58:14.430 20578 20578 D DesktopModeFlags: Toggle override initialized to: OVERRIDE_UNSET
+04-07 12:58:14.455   724  1729 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ENABLE_FAKE_FOCUS
+04-07 12:58:14.454   724   754 I ActivityManager: updateOomAdj start time is before than pendingPid added, don't delete it
+04-07 12:58:14.459   724   751 V WindowManager: Sent Transition (#194) createdAt=04-07 12:58:14.401 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=142 effectiveUid=10229 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.example.gamevault/.LoginActivity } baseActivity=ComponentInfo{com.example.gamevault/com.example.gamevault.LoginActivity} topActivity=ComponentInfo{com.example.gamevault/com.example.gamevault.MainActivity} origActivity=null realActivity=ComponentInfo{com.example.gamevault/com.example.gamevault.LoginActivity} numActivities=2 lastActiveTime=65541761 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{c597e5 Task{13e1a80 #142 type=standard A=10229:com.example.gamevault}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0) topActivityInfo=ActivityInfo{895870e com.example.gamevault.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(284, 660 - 796, 1740) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 194 }
+04-07 12:58:14.459   724   751 V WindowManager:     startWCT=WindowContainerTransaction { changes= {} hops= [] errorCallbackToken=null taskFragmentOrganizer=null }
+04-07 12:58:14.460   724   751 V WindowManager:     info={id=194 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+04-07 12:58:14.460   724   751 V WindowManager:         {m=OPEN f=STARTING_WINDOW_TRANSFER|FILLS_TASK|IS_BEHIND_STARTING_WINDOW leash=Surface(name=ActivityRecord{46321873 u0 com.example.gamevault/.MainActivity)/@0xc743a10 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=-1->0 r=-1->0:-1 bc=fffffbfe component=com.example.gamevault/.MainActivity},
+04-07 12:58:14.460   724   751 V WindowManager:         {m=CLOSE f=FILLS_TASK|IS_BEHIND_STARTING_WINDOW leash=Surface(name=ActivityRecord{46897923 u0 com.example.gamevault/.LoginActivity)/@0xd2f3ed3 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 bc=fffffbfe component=com.example.gamevault/.LoginActivity}
+04-07 12:58:14.460   724   751 V WindowManager:     ]}
+04-07 12:58:14.459   986  4838 V WindowManagerShell: onTransitionReady(transaction=3109556327596)
+04-07 12:58:14.463   566   566 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+04-07 12:58:14.459   986  1058 V WindowManagerShell: onTransitionReady (#194) android.os.BinderProxy@ff45984: {id=194 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+04-07 12:58:14.459   986  1058 V WindowManagerShell:         {m=OPEN f=STARTING_WINDOW_TRANSFER|FILLS_TASK|IS_BEHIND_STARTING_WINDOW leash=Surface(name=ActivityRecord{46321873 u0 com.example.gamevault/.MainActivity)/@0x5f86233 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=-1->0 r=-1->0:-1 bc=fffffbfe component=com.example.gamevault/.MainActivity},
+04-07 12:58:14.459   986  1058 V WindowManagerShell:         {m=CLOSE f=FILLS_TASK|IS_BEHIND_STARTING_WINDOW leash=Surface(name=ActivityRecord{46897923 u0 com.example.gamevault/.LoginActivity)/@0xf1f89f0 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 bc=fffffbfe component=com.example.gamevault/.LoginActivity}
+04-07 12:58:14.459   986  1058 V WindowManagerShell:     ]}
+04-07 12:58:14.462   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:14.459   986  1058 V WindowManagerShell: Non-visible anim so abort: (#194) android.os.BinderProxy@ff45984@0
+04-07 12:58:14.459   986  1058 V WindowManagerShell: Transition animation finished (aborted=true), notifying core (#194) android.os.BinderProxy@ff45984@0
+04-07 12:58:14.465   724   751 V WindowManager: Finish Transition (#194): created at 04-07 12:58:14.401 collect-started=0.037ms request-sent=5.331ms started=10.414ms ready=54.106ms sent=56.577ms finished=62.207ms
+04-07 12:58:14.466   986  1058 V WindowManagerShell: Track 0 became idle
+04-07 12:58:14.466   986  1058 V WindowManagerShell: All active transition animations finished
+04-07 12:58:14.466   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:14.467   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:14.481 20578 20578 I ample.gamevault: hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app) using reflection: allowed
+04-07 12:58:14.496 20578 20578 D CompatChangeReporter: Compat change id reported: 63938206; UID 10229; state: ENABLED
+04-07 12:58:14.508 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.510 20578 20578 D CompatChangeReporter: Compat change id reported: 352594277; UID 10229; state: ENABLED
+04-07 12:58:14.519 20578 20578 D CompatChangeReporter: Compat change id reported: 303326708; UID 10229; state: ENABLED
+04-07 12:58:14.531 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.534 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.536 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.538 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.539 20578 20578 W HWUI    : Image decoding logging dropped!
+04-07 12:58:14.548 20578 20578 I ample.gamevault: hiddenapi: Accessing hidden method Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard; (runtime_flags=CorePlatformApi, domain=core-platform, api=unsupported,core-platform-api) from Lokhttp3/internal/platform/AndroidPlatform$CloseGuard; (domain=app) using reflection: allowed
+04-07 12:58:14.548 20578 20578 I ample.gamevault: hiddenapi: Accessing hidden method Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V (runtime_flags=CorePlatformApi, domain=core-platform, api=unsupported,core-platform-api) from Lokhttp3/internal/platform/AndroidPlatform$CloseGuard; (domain=app) using reflection: allowed
+04-07 12:58:14.548 20578 20578 I ample.gamevault: hiddenapi: Accessing hidden method Ldalvik/system/CloseGuard;->warnIfOpen()V (runtime_flags=CorePlatformApi, domain=core-platform, api=unsupported,core-platform-api) from Lokhttp3/internal/platform/AndroidPlatform$CloseGuard; (domain=app) using reflection: allowed
+04-07 12:58:14.552 20578 20578 I ample.gamevault: hiddenapi: Accessing hidden method Ljava/lang/invoke/MethodHandles$Lookup;-><init>(Ljava/lang/Class;I)V (runtime_flags=0, domain=core-platform, api=unsupported) from Lretrofit2/Platform; (domain=app) using reflection: allowed
+04-07 12:58:14.570 20578 20578 D CompatChangeReporter: Compat change id reported: 349153669; UID 10229; state: ENABLED
+04-07 12:58:14.573 20578 20578 W HWUI    : Unknown dataspace 0
+04-07 12:58:14.610   724  1729 D CoreBackPreview: Window{21f69e6 u0 com.example.gamevault/com.example.gamevault.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@7fee1d4, mPriority=0, mIsAnimationCallback=false, mOverrideBehavior=0}
+04-07 12:58:14.677 20578 20578 E RecyclerView: No adapter attached; skipping layout
+04-07 12:58:14.678 20578 20578 E RecyclerView: No adapter attached; skipping layout
+04-07 12:58:14.739   724   751 I ActivityTaskManager: Displayed com.example.gamevault/.MainActivity for user 0: +1s36ms
+04-07 12:58:14.739 20578 20578 W Choreographer: Frame time is 0.825841 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.737   986  1171 W Choreographer: Frame time is 2.416223 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.757 20578 20578 W Glide   : Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored
+04-07 12:58:14.771   986  1171 W Choreographer: Frame time is 1.798654 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.776 20578 20578 I ample.gamevault: AssetManager2(0x7ddbb9ef61f8) locale list changing from [] to [en-US]
+04-07 12:58:14.788   986  1171 W Choreographer: Frame time is 1.418529 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.822   986  1171 W Choreographer: Frame time is 0.470921 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.838   986  1171 W Choreographer: Frame time is 1.137587 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.871   986  1171 W Choreographer: Frame time is 1.759021 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.888   986  1171 W Choreographer: Frame time is 1.387164 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.924   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:14.929  1140  1140 D BaseDepthController: setSurface:
+04-07 12:58:14.929  1140  1140 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+04-07 12:58:14.929  1140  1140 D BaseDepthController: 	mBaseSurface: null
+04-07 12:58:14.929  1140  1140 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+04-07 12:58:14.931  1140  1140 D StateManager: goToState - fromState: Normal, toState: Normal, partial trace:
+04-07 12:58:14.931  1140  1140 D StateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:4)
+04-07 12:58:14.931  1140  1140 D StateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:1)
+04-07 12:58:14.931  1140  1140 D StateManager: 	at com.android.launcher3.statemanager.StatefulActivity.onStop(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:34)
+04-07 12:58:14.932  1140  1140 D StatsLog: LAUNCHER_ONSTOP
+04-07 12:58:14.934   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:14.934  1140  1140 D StatsLog: LAUNCHER_GOOGLE_SEARCH_RESTORE_LIST_SIZE_AFTER_ACTIVITY_RESTART
+04-07 12:58:14.938   986  1171 W Choreographer: Frame time is 1.137584 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:14.945   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:14.984 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.034 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.044  1140  1159 W System  : A resource failed to call release. 
+04-07 12:58:15.051 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.071 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.082 20296 20328 I FontLog : (REDACTED) Received query %s, URI %s
+04-07 12:58:15.086 20296 20328 I FontLog : (REDACTED) Query [%s] resolved to %s
+04-07 12:58:15.089 20578 20578 W Choreographer: Frame time is 0.79024297 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.089  1140  1140 W Choreographer: Frame time is 0.671852 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.090 20296 20328 I FontLog : (REDACTED) Fetch %s end status %s
+04-07 12:58:15.091   986  1171 W Choreographer: Frame time is 3.137578 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.098   986  1171 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda13@d4642a7
+04-07 12:58:15.101   724  1039 D CoreBackPreview: Window{40f85f1 u0 Splash Screen com.example.gamevault EXITING}: Setting back callback null
+04-07 12:58:15.099 20296 20328 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+04-07 12:58:15.105   635   705 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:15.105   635   705 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:15.103 20296 20328 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+04-07 12:58:15.104   986  1287 W Choreographer: Frame time is 2.291426 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.105   986  1171 W Choreographer: Frame time is 1.740003 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.109 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.122   986  1171 W Choreographer: Frame time is 0.47091 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.130 20578 20607 W HWUI    : Image decoding logging dropped!
+04-07 12:58:15.138   724   756 W Choreographer: Frame time is 1.137576 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.146 20578 20578 W Glide   : Load failed for [http://10.0.2.2:3000/imgBBDD/Games/witcher3.jpg] with dimensions [954x525]
+04-07 12:58:15.146 20578 20578 W Glide   : class com.bumptech.glide.load.engine.GlideException: Failed to load resource
+04-07 12:58:15.146 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.146 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.146 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.146 20578 20578 W Glide   :   Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetching data failed, class java.io.InputStream, REMOTE
+04-07 12:58:15.146 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.146 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.146 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.146 20578 20578 W Glide   :     Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetch failed
+04-07 12:58:15.146 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.146 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.146 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.146 20578 20578 W Glide   :       Cause (1 of 1): class com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.147 20578 20578 I Glide   : Root cause (1 of 1)
+04-07 12:58:15.147 20578 20578 I Glide   : com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:98)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadData(HttpUrlFetcher.java:58)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.model.MultiModelLoader$MultiFetcher.loadData(MultiModelLoader.java:100)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNextLoad(SourceGenerator.java:95)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNext(SourceGenerator.java:88)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runGenerators(DecodeJob.java:311)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runWrapped(DecodeJob.java:280)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.run(DecodeJob.java:235)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultThreadFactory$1.run(GlideExecutor.java:424)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at java.lang.Thread.run(Thread.java:1119)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultPriorityThreadFactory$1.run(GlideExecutor.java:383)
+04-07 12:58:15.147 20578 20578 I Glide   : Caused by: java.io.FileNotFoundException: http://10.0.2.2:3000/imgBBDD/Games/witcher3.jpg
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-07 12:58:15.147 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:95)
+04-07 12:58:15.147 20578 20578 I Glide   : 	... 12 more
+04-07 12:58:15.148 20578 20578 W Glide   : Load failed for [http://10.0.2.2:3000/imgBBDD/Games/rdr2.jpg] with dimensions [954x525]
+04-07 12:58:15.148 20578 20578 W Glide   : class com.bumptech.glide.load.engine.GlideException: Failed to load resource
+04-07 12:58:15.148 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.148 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.148 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.148 20578 20578 W Glide   :   Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetching data failed, class java.io.InputStream, REMOTE
+04-07 12:58:15.148 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.148 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.148 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.148 20578 20578 W Glide   :     Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetch failed
+04-07 12:58:15.148 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.148 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.148 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.148 20578 20578 W Glide   :       Cause (1 of 1): class com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.149 20578 20578 I Glide   : Root cause (1 of 1)
+04-07 12:58:15.149 20578 20578 I Glide   : com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:98)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadData(HttpUrlFetcher.java:58)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.model.MultiModelLoader$MultiFetcher.loadData(MultiModelLoader.java:100)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNextLoad(SourceGenerator.java:95)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNext(SourceGenerator.java:88)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runGenerators(DecodeJob.java:311)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runWrapped(DecodeJob.java:280)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.run(DecodeJob.java:235)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultThreadFactory$1.run(GlideExecutor.java:424)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at java.lang.Thread.run(Thread.java:1119)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultPriorityThreadFactory$1.run(GlideExecutor.java:383)
+04-07 12:58:15.149 20578 20578 I Glide   : Caused by: java.io.FileNotFoundException: http://10.0.2.2:3000/imgBBDD/Games/rdr2.jpg
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-07 12:58:15.149 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:95)
+04-07 12:58:15.149 20578 20578 I Glide   : 	... 12 more
+04-07 12:58:15.149 20578 20578 W Glide   : Load failed for [http://10.0.2.2:3000/imgBBDD/Games/portal2.jpg] with dimensions [954x525]
+04-07 12:58:15.149 20578 20578 W Glide   : class com.bumptech.glide.load.engine.GlideException: Failed to load resource
+04-07 12:58:15.149 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.149 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.149 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.149 20578 20578 W Glide   :   Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetching data failed, class java.io.InputStream, REMOTE
+04-07 12:58:15.149 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.149 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.149 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.149 20578 20578 W Glide   :     Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetch failed
+04-07 12:58:15.149 20578 20578 W Glide   : There was 1 root cause:
+04-07 12:58:15.149 20578 20578 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
+04-07 12:58:15.149 20578 20578 W Glide   :  call GlideException#logRootCauses(String) for more detail
+04-07 12:58:15.149 20578 20578 W Glide   :       Cause (1 of 1): class com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.150 20578 20578 I Glide   : Root cause (1 of 1)
+04-07 12:58:15.150 20578 20578 I Glide   : com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:98)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadData(HttpUrlFetcher.java:58)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.model.MultiModelLoader$MultiFetcher.loadData(MultiModelLoader.java:100)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNextLoad(SourceGenerator.java:95)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.SourceGenerator.startNext(SourceGenerator.java:88)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runGenerators(DecodeJob.java:311)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.runWrapped(DecodeJob.java:280)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.DecodeJob.run(DecodeJob.java:235)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultThreadFactory$1.run(GlideExecutor.java:424)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at java.lang.Thread.run(Thread.java:1119)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.engine.executor.GlideExecutor$DefaultPriorityThreadFactory$1.run(GlideExecutor.java:383)
+04-07 12:58:15.150 20578 20578 I Glide   : Caused by: java.io.FileNotFoundException: http://10.0.2.2:3000/imgBBDD/Games/portal2.jpg
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:255)
+04-07 12:58:15.150 20578 20578 I Glide   : 	at com.bumptech.glide.load.data.HttpUrlFetcher.loadDataWithRedirects(HttpUrlFetcher.java:95)
+04-07 12:58:15.150 20578 20578 I Glide   : 	... 12 more
+04-07 12:58:15.156 20578 20578 W Choreographer: Frame time is 1.584996 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.187   724   756 W Choreographer: Frame time is 2.317486 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.190  1140  1140 W Choreographer: Frame time is 0.12224 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+04-07 12:58:15.274 20578 20582 I ample.gamevault: Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+04-07 12:58:15.530   724   760 D ActivityManager: sync unfroze 16007 com.google.android.apps.messaging for 3
+04-07 12:58:15.541 16007 16274 I BugleRcsEngine: SIM state event delay enabled: attempts 0, maxAttempts 3, delaySeconds 90 MSIM delayseconds 90, effective delay seconds 90 [CONTEXT thread_id=138 ]
+04-07 12:58:15.541 16007 16274 I BugleRcsEngine: posted simEventProcessTask to handler with delay 90 [CONTEXT thread_id=138 ]
+04-07 12:58:15.545 16007 20615 I BugleDataModel: Scheduling country code detector action, because a subscription changed its state.
+04-07 12:58:15.579 16007 16274 I BugleRcsEngine: SIM state event delay enabled: attempts 1, maxAttempts 3, delaySeconds 90 MSIM delayseconds 90, effective delay seconds 90 [CONTEXT thread_id=138 ]
+04-07 12:58:15.580 16007 16274 I BugleRcsEngine: posted simEventProcessTask to handler with delay 90 [CONTEXT thread_id=138 ]
+04-07 12:58:15.604 16007 20616 I RcsProvisioningFlow: Scheduling 3 using PWQ with updateTrigger: 2, scheduledAt: 2026-04-07T12:58:15.578Z, initialDelaySeconds: 0.
+04-07 12:58:15.644 16007 20616 I RcsProvisioningFlow: Scheduling 3 using PWQ with updateTrigger: 2, scheduledAt: 2026-04-07T12:58:15.644Z, initialDelaySeconds: 0.
+04-07 12:58:15.641 16007 20615 I BugleDataModel: Scheduling self participants refresh action, because a subscription changed its state.
+04-07 12:58:15.649 16007 16078 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:15.668 16007 20617 I .apps.messaging: AssetManager2(0x7ddbb9efd8b8) locale list changing from [] to [en-US]
+04-07 12:58:15.672 16007 20615 W JobInfo : Requested important-while-foreground flag for job1598 is ignored and takes no effect
+04-07 12:58:15.673 16007 20615 D WM-SystemJobScheduler: Scheduling work ID a26a5b97-db3f-43d9-ac62-cdb690e31e74Job ID 1598
+04-07 12:58:15.673 16007 16078 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:15.675 16007 20617 W Bugle   : BuglePhoneNumberUtils: canonicalizeMccMnc: invalid mccmnc. mcc: null, mnc: null
+04-07 12:58:15.676 16007 16078 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:15.676 16007 16078 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:15.678 16007 20615 D WM-GreedyScheduler: Ignoring {WorkSpec: 4e79be1e-7ccb-43d8-83bc-afcd619cdd8d}. Requires device idle.
+04-07 12:58:15.678 16007 20615 D WM-GreedyScheduler: Ignoring {WorkSpec: 1cd3b08b-060d-484d-bd84-34dde44bd01b}. Requires device idle.
+04-07 12:58:15.678 16007 20615 D WM-GreedyScheduler: Ignoring {WorkSpec: 725bb74e-a175-48b0-bb4d-02ee3f71fc85}. Requires device idle.
+04-07 12:58:15.677 16007 16078 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:15.677 16007 16078 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:15.677 16007 16078 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:15.678 16007 20615 D WM-GreedyScheduler: Starting work for a26a5b97-db3f-43d9-ac62-cdb690e31e74
+04-07 12:58:15.678 16007 20615 D WM-GreedyScheduler: Starting tracking for 24a3d22d-8269-4bf4-86e5-ede21bbbf209,bd202fea-3a2d-44ea-93b3-cd40403fe0f7,f1e23059-e7f2-4ec3-9cbc-3c7b22043661,bbc9356c-d8c2-4ad6-a9a4-968dbaef3f28
+04-07 12:58:15.677 16007 16078 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:15.681 16007 20615 D WM-Processor: snx: processing WorkGenerationalId(workSpecId=a26a5b97-db3f-43d9-ac62-cdb690e31e74, generation=0)
+04-07 12:58:15.680 16007 16007 D WM-SystemJobService: onStartJob for WorkGenerationalId(workSpecId=a26a5b97-db3f-43d9-ac62-cdb690e31e74, generation=0)
+04-07 12:58:15.684 16007 20615 I BugleDataModel: Scheduling country code detector action, because a subscription changed its state.
+04-07 12:58:15.685 16007 20615 I BugleDataModel: Scheduling self participants refresh action, because a subscription changed its state.
+04-07 12:58:15.688 16007 20617 W Bugle   : BuglePhoneNumberUtils: canonicalizeMccMnc: invalid mccmnc. mcc: null, mnc: null
+04-07 12:58:15.691 16007 20616 D MddListenableWorkerFactory: createWorker for class: com.google.android.apps.messaging.shared.datamodel.workqueue.WorkQueueWorkerShim
+04-07 12:58:15.696 16007 20617 D WM-Processor: Work WorkGenerationalId(workSpecId=a26a5b97-db3f-43d9-ac62-cdb690e31e74, generation=0) is already enqueued for processing
+04-07 12:58:15.699 16007 16007 D WM-WorkerWrapper: Starting work for com.google.android.apps.messaging.shared.datamodel.workqueue.WorkQueueWorkerShim
+04-07 12:58:15.702 16007 20616 I RcsProvisioningFlow: Handling SIM state update work request for 3 with updateTrigger 2, scheduledAt 2026-04-07T12:58:15.578Z.
+04-07 12:58:15.702 16007 20616 I RcsProvisioningFlow: Beginning update task for phone SIMs state scheduledAt: 2026-04-07T12:58:15.578Z
+04-07 12:58:15.699 16007 16075 I BugleConnectivity: isOnSatellite(1): false [CONTEXT ratelimit_period="1 SECONDS" skipped=1 ]
+04-07 12:58:15.699 16007 16075 I BugleConnectivity: 1 is not on satellite and no other subscriptions are on satellite [CONTEXT ratelimit_period="1 SECONDS" skipped=1 ]
+04-07 12:58:15.704 16007 20616 I RcsProvisioningFlow: Lock acquired for updatng phone SIMs state with update trigger: 2.
+04-07 12:58:15.708 16007 20616 I BugleSimStateTracker: default call SIM: redacted-pii:sim_id[chars:20,last3:897], default sms SIM redacted-pii:sim_id[chars:20,last3:897]. default data SIM redacted-pii:sim_id[chars:20,last3:897].
+04-07 12:58:15.718 16007 20616 I BugleSimStateTracker: Is carrier config for identified carrier: true
+04-07 12:58:15.731 16007 20616 I BugleSimStateTracker: Looking up Fi through package names.
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: All newly built SimSubscriptionInfos: [(simId: redacted-pii:sim_id[chars:20,last3:897],
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: subId: 1,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: simSlot: 0,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: imsi: redacted-pii:imsi[chars:15],
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: phoneNumber: redacted-pii:phone_number[chars:12,last2:67],
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: countryCode: US,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: networkOperatorName: T-Mobile,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: subscriptionGroupUuid: ,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: mcc: 310,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: mnc: 260,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: simCarrierId: 1,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: iccid: redacted-pii:sim_iccid[chars:20],
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: isFi: false,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: loggableGuid: e4692a14-eed3-4d4b-8fa5-d9259f017b36,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: formattedMsisdn: redacted-pii:phone_number[chars:12,last2:67],
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: simOperatorName: T-Mobile,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: simOperator: 310260,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: groupIdLevel1: ,
+04-07 12:58:15.741 16007 20616 I RcsProvisioningFlow: preferredSubscriptionName: T-Mobile)]
+04-07 12:58:15.749 16007 20616 I RcsProvisioningFlow: Storing updated SimSubscriptionInfo list: [(redacted-pii:sim_id[chars:20,last3:897], e4692a14-eed3-4d4b-8fa5-d9259f017b36)]
+04-07 12:58:15.754 16007 20616 I RcsProvisioningFlow: No new or updated SIMs on phone sim state update.
+04-07 12:58:15.761 16007 20619 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=a26a5b97-db3f-43d9-ac62-cdb690e31e74, tags={ com.google.android.apps.messaging.shared.datamodel.workqueue.WorkQueueWorkerShim,sim_state_update_queue-WORK_TYPE_UPDATE_PHONE_SIMS_STATE } ]
+04-07 12:58:15.764 16007 16007 D WM-Processor: snx a26a5b97-db3f-43d9-ac62-cdb690e31e74 executed; reschedule = false
+04-07 12:58:15.764 16007 16007 D WM-SystemJobService: a26a5b97-db3f-43d9-ac62-cdb690e31e74 executed on JobScheduler
+04-07 12:58:15.769 16007 20617 D WM-GreedyScheduler: Cancelling work ID a26a5b97-db3f-43d9-ac62-cdb690e31e74
+04-07 12:58:15.770 16007 20617 D WM-GreedyScheduler: Ignoring {WorkSpec: 4e79be1e-7ccb-43d8-83bc-afcd619cdd8d}. Requires device idle.
+04-07 12:58:15.770 16007 20617 D WM-GreedyScheduler: Ignoring {WorkSpec: 1cd3b08b-060d-484d-bd84-34dde44bd01b}. Requires device idle.
+04-07 12:58:15.770 16007 20617 D WM-GreedyScheduler: Ignoring {WorkSpec: 725bb74e-a175-48b0-bb4d-02ee3f71fc85}. Requires device idle.
+04-07 12:58:15.770 16007 20617 D WM-GreedyScheduler: Starting tracking for 24a3d22d-8269-4bf4-86e5-ede21bbbf209,bd202fea-3a2d-44ea-93b3-cd40403fe0f7,f1e23059-e7f2-4ec3-9cbc-3c7b22043661,bbc9356c-d8c2-4ad6-a9a4-968dbaef3f28
+04-07 12:58:15.774 16007 16075 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:15.774 16007 16075 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:17.215   724  1625 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+04-07 12:58:19.503  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:58:19.964 20578 20621 D ProfileInstaller: Installing profile for com.example.gamevault
+04-07 12:58:21.651 16007 16007 I BugleDataModel: ActionExecutorImpl: ACTION_EXECUTE_QUEUED_CountryCodeDetectorAction
+04-07 12:58:21.651 16007 16007 I BugleDataModel: ActionExecutorImpl: ACTION_EXECUTE_QUEUED_SelfParticipantsRefreshAction
+04-07 12:58:21.653 16007 20615 I BugleDataModel: ExecuteActionRunnable: running action CountryCodeDetectorAction
+04-07 12:58:21.654 16007 20615 I BugleDataModel: ActionExecutorImpl: ACTION_BACKGROUND_QUEUED_CountryCodeDetectorAction
+04-07 12:58:21.654 16007 20615 I BugleDataModel: ExecuteActionRunnable: finished running action CountryCodeDetectorAction
+04-07 12:58:21.654 16007 20615 I BugleDataModel: ExecuteActionRunnable: running action SelfParticipantsRefreshAction
+04-07 12:58:21.654 16007 20615 I BugleDataModel: ActionExecutorImpl: ACTION_BACKGROUND_QUEUED_SelfParticipantsRefreshAction
+04-07 12:58:21.654 16007 20615 I BugleDataModel: ExecuteActionRunnable: finished running action SelfParticipantsRefreshAction
+04-07 12:58:21.651 16007 20619 I Bugle   : CountryCodeDetector: updateSmsNetworkCountry from default subscription network country. detected country: us
+04-07 12:58:21.651 16007 20619 I BugleDataModel: ActionExecutorImpl: ACTION_RESPONSE_QUEUED_CountryCodeDetectorAction
+04-07 12:58:21.651 16007 20619 I BugleDataModel: ParticipantFullRefresh: Start participant refresh. refreshMode: SELF_ONLY
+04-07 12:58:21.658 16007 20619 I BugleDataModel: SubscriptionsTracker#refreshSelfParticipantList([1]), with subIdToSimIdMap([])
+04-07 12:58:21.672 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.676 16007 20619 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.680 16007 20619 I Bugle   : CountryCodeDetector: updateSmsNetworkCountry from default subscription network country. detected country: us
+04-07 12:58:21.686 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.690 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.690 16007 20619 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.691 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.694 16007 20619 I BugleDataModel: SubscriptionsTracker bindToTrackingMap bound participants: [ParticipantId=1 subId=-1, ParticipantId=2 subId=1]
+04-07 12:58:21.694 16007 20619 I BugleDataModel: set orderedRowIdAndTokenPairs: [rowId=2 subId= 1 token=10cc8fdf-08b0-4330-88a2-b9e7bdbc2c46, rowId=1 subId= -1 token=120c46c1-2bbe-43ad-9b13-a6178ec6bef4]
+04-07 12:58:21.699 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.699 16007 20619 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.703   724   954 D ActivityManager: sync unfroze 1928 android.process.acore for 7
+04-07 12:58:21.741 16007 20619 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.741 16007 20619 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.749 16007 20619 I BugleDataModel: ParticipantFullRefresh: Number of participants refreshed: 0
+04-07 12:58:21.751 16007 20619 I BugleDataModel: ActionExecutorImpl: ACTION_RESPONSE_QUEUED_SelfParticipantsRefreshAction
+04-07 12:58:21.749   724   954 W ProcessStats: Tracking association SourceState{a48215c com.google.android.apps.messaging/10145 Service #15847} whose proc state 8 is better than process ProcessState{d8309c3 android.process.acore/10095 pkg=com.android.providers.contacts (sub)} proc state 15 (253 skipped)
+04-07 12:58:21.753 16007 16073 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.756 16007 16073 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.757 16007 16073 I BugleSelfIdentity: Phone number for MyIdentity 10cc8fdf-08b0-4330-88a2-b9e7bdbc2c46 does not change [CONTEXT sub_id=1 icc_id="redacted-pii[20-chars]" messaging_identity="redacted-pii[12-chars]" rcs_provisioning_id="redacted-pii[0-chars]" ]
+04-07 12:58:21.758 16007 16075 I ForwardSyncCache: reclaimMemory: Clearing caches
+04-07 12:58:21.758 16007 16075 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+04-07 12:58:21.763 16007 16073 I Bugle   : getRawTelephonyPhoneNumber redacted-pii[12-chars] [CONTEXT sub_id=1 ]
+04-07 12:58:21.764 16007 16073 I Bugle   : SubscriptionUtils.getCanonicalForSelf: self=redacted-pii[12-chars], country=US [CONTEXT sub_id=1 ]
+04-07 12:58:21.765 16007 16073 I BugleSelfIdentity: Phone number for MyIdentity 10cc8fdf-08b0-4330-88a2-b9e7bdbc2c46 does not change [CONTEXT sub_id=1 icc_id="redacted-pii[20-chars]" messaging_identity="redacted-pii[12-chars]" rcs_provisioning_id="redacted-pii[0-chars]" ]
+04-07 12:58:22.535   724  1729 I ActivityManager: Force stopping com.example.gamevault appid=10229 user=0: from pid 20625
+04-07 12:58:22.537   724  1729 I ActivityManager: Killing 20578:com.example.gamevault/u0a229 (adj 0): stop com.example.gamevault due to from pid 20625
+04-07 12:58:22.538   724  1729 D CompatChangeReporter: Compat change id reported: 151861875; UID 10229; state: ENABLED
+04-07 12:58:22.542   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.540   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.543   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:22.543   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10229} in 2ms
+04-07 12:58:22.539   724  1729 W ActivityTaskManager: Force removing ActivityRecord{46321873 u0 com.example.gamevault/.MainActivity t142 f}}: app died, no saved state
+04-07 12:58:22.543   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:22.542   986  1058 V WindowManagerShell: Transition requested (#195): android.os.BinderProxy@2b3e4ab TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=142 effectiveUid=10229 displayId=0 isRunning=false baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.example.gamevault/.LoginActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{com.example.gamevault/com.example.gamevault.LoginActivity} numActivities=0 lastActiveTime=65541810 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@d86a708} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0) topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=true lastNonFullscreenBounds=Rect(284, 660 - 796, 1740) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 0, 0) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=undefined}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 195 }
+04-07 12:58:22.545   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:22.545   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={20229} in 2ms
+04-07 12:58:22.548   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:22.549   724   939 D BackgroundInstallControlService: Package event received: 0
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.549   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.550   566   583 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+04-07 12:58:22.550   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.550   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.550   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.548  1140  1140 D ViewRootImpl: Skipping stats log for color mode
+04-07 12:58:22.550   724  1729 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{8c4c875 com.example.ejemplogridview/10217} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{132b07b com.android.microdroid.empty_payload/10200} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{e7cce98 com.example.ejsaludointeractivo/10225} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{3a676f1 com.example.ejemplonavigationdrawer/10221} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{11a912d com.example.composefiestacumple/10228} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{659b662 com.example.examen/10224} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{b90b3f3 com.example.ejemplomenuopciones/10220} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.551   724  1729 I AppsFilter: interaction: PackageSetting{462d8b0 com.example.seleccionasignatura/10226} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.552   724  1729 I AppsFilter: interaction: PackageSetting{43c1329 com.example.repasonavdrawer/10223} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.552   724  1729 I AppsFilter: interaction: PackageSetting{620d6ae com.example.practicajetpack/10227} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.552   724  1729 I AppsFilter: interaction: PackageSetting{5f89c4f com.example.ejemplobottomnavigation/10222} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.552   724  1729 I AppsFilter: interaction: PackageSetting{e94cfdc com.example.ejemplolistview/10218} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.552   724  1729 I AppsFilter: interaction: PackageSetting{cd9b8e5 com.example.ejemplonavigationcomponent/10219} -> PackageSetting{c574b56 com.example.gamevault/10229} BLOCKED
+04-07 12:58:22.550  1140  1140 D StatsLog: LAUNCHER_ONRESUME
+04-07 12:58:22.550   986  1058 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=527
+04-07 12:58:22.555  1111  1111 D CarrierSvcBindHelper: onHandleForceStop: [com.example.gamevault]
+04-07 12:58:22.553   724  1854 I WindowManager: WIN DEATH: Window{21f69e6 u0 com.example.gamevault/com.example.gamevault.MainActivity}
+04-07 12:58:22.555   573   573 I adbd    : Remote process closed the socket (on MSG_PEEK)
+04-07 12:58:22.558   566   566 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+04-07 12:58:22.559  1140  1140 D NexusLauncherModelDelegate: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=6}
+04-07 12:58:22.561  1111  1111 D CarrierSvcBindHelper: No carrier app for: 0
+04-07 12:58:22.561   492   492 I Zygote  : Process 20578 exited due to signal 9 (Killed)
+04-07 12:58:22.564   724   754 W ActivityManager: setHasOverlayUi called on unknown pid: 20578
+04-07 12:58:22.562   724   954 V ActivityManager: Got obituary of 20578:com.example.gamevault
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.564   724   823 W JobScheduler.JobStatus: Exempted app com.android.vending considered buggy
+04-07 12:58:22.565  1140  1198 D QuickstepModelDelegate: notifyAppTargetEvent action=1 launchLocation=workspace/0/[-1,-1]/[1,1]
+04-07 12:58:22.567  1140  1140 D BaseDepthController: setSurface:
+04-07 12:58:22.567  1140  1140 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+04-07 12:58:22.567  1140  1140 D BaseDepthController: 	mBaseSurface: Surface(name=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity)/@0xf25642
+04-07 12:58:22.568  1491  1726 I AiAiEcho: Predicting[0]:  [CONTEXT sampling_count=5 ]
+04-07 12:58:22.569  1491  1726 I AiAiEcho: EchoTargets: 
+04-07 12:58:22.569  1491  1726 I AiAiEcho: Filtered by AiAi flag check: 
+04-07 12:58:22.569  1491  1726 I AiAiEcho: [CONTEXT ratelimit_period="10 SECONDS" ]
+04-07 12:58:22.570  1491  1726 I AiAiEcho: #remoteViewsTwiddler: feature disabled.
+04-07 12:58:22.575  1491  1726 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0 (types=[])
+04-07 12:58:22.571   724   762 I libprocessgroup: Removed cgroup /sys/fs/cgroup/apps/uid_10229/pid_20578
+04-07 12:58:22.595  1140  1140 D SsBaseTemplateCard: No text view can be set up
+04-07 12:58:22.596  1140  1140 D SsBaseTemplateCard: Passed-in item info is null
+04-07 12:58:22.596  1140  1140 D SsBaseTemplateCard: Passed-in item info is null
+04-07 12:58:22.596  1140  1140 D SsBaseTemplateCard: Passed-in item info is null
+04-07 12:58:22.596  1140  1140 I SsBaseTemplateCard: Secondary card pane is null
+04-07 12:58:22.598   724   751 V WindowManager: Sent Transition (#195) createdAt=04-07 12:58:22.539 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=142 effectiveUid=10229 displayId=0 isRunning=false baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.example.gamevault/.LoginActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{com.example.gamevault/com.example.gamevault.LoginActivity} numActivities=0 lastActiveTime=65541810 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{c597e5 Task{13e1a80 #142 type=standard A=10229:com.example.gamevault}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0) topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=true lastNonFullscreenBounds=Rect(284, 660 - 796, 1740) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 0, 0) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=undefined}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 195 }
+04-07 12:58:22.598   724   751 V WindowManager:     startWCT=WindowContainerTransaction { changes= {} hops= [] errorCallbackToken=null taskFragmentOrganizer=null }
+04-07 12:58:22.598   724   751 V WindowManager:     info={id=195 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+04-07 12:58:22.598   724   751 V WindowManager:         {WCT{RemoteToken{af85cf1 Task{ecd330d #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0xc9599e4 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},
+04-07 12:58:22.598   724   751 V WindowManager:         {WCT{RemoteToken{c597e5 Task{13e1a80 #142 type=standard A=10229:com.example.gamevault}}} m=CLOSE f=NONE leash=Surface(name=Task=142)/@0x5b3a34f sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},
+04-07 12:58:22.598   724   751 V WindowManager:         {m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{8381f77 showWhenLocked=false})/@0x585a977 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0}
+04-07 12:58:22.598   724   751 V WindowManager:     ]}
+04-07 12:58:22.595   986  4838 V WindowManagerShell: onTransitionReady(transaction=3109556327621)
+04-07 12:58:22.598   986  1058 V WindowManagerShell: onTransitionReady (#195) android.os.BinderProxy@2b3e4ab: {id=195 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+04-07 12:58:22.598   986  1058 V WindowManagerShell:         {m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x3a168c6 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},
+04-07 12:58:22.598   986  1058 V WindowManagerShell:         {m=CLOSE f=NONE leash=Surface(name=Task=142)/@0x8ca2087 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},
+04-07 12:58:22.598   986  1058 V WindowManagerShell:         {m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{8381f77 showWhenLocked=false})/@0x3632bb4 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0}
+04-07 12:58:22.598   986  1058 V WindowManagerShell:     ]}
+04-07 12:58:22.598   986  1058 V WindowManagerShell: Playing animation for (#195) android.os.BinderProxy@2b3e4ab@0
+04-07 12:58:22.598   986  1058 V ShellRecents: RecentsTransitionHandler.startAnimation: no controller found
+04-07 12:58:22.598   986  1058 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=195 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x3a168c6 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},{m=CLOSE f=NONE leash=Surface(name=Task=142)/@0x8ca2087 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},{m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{8381f77 showWhenLocked=false})/@0x3632bb4 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0}]}
+04-07 12:58:22.598   986  1058 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null taskFragmentToken=android.os.BinderProxy@a408007 windowingMode=undefined}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@e2d534, appThread = android.app.IApplicationThread$Stub$Proxy@7c2cf5d, debugName = overlayBackTransition }}
+04-07 12:58:22.599   986  1058 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null windowingMode=undefined},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null windowingMode=undefined}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@80ed0d2, appThread = android.app.IApplicationThread$Stub$Proxy@65b15a3, debugName = LauncherToDream }}
+04-07 12:58:22.599   986  1058 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null windowingMode=undefined},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null windowingMode=undefined},{NOT atype=undefined independent=true modes=[] flags=NONE mustBeTask=true order=ANY topActivity=null launchCookie=null customAnim=true windowingMode=undefined}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@47210a0, appThread = android.app.IApplicationThread$Stub$Proxy@1620459, debugName = QuickstepLaunchHome }}
+04-07 12:58:22.599   986  1058 D RemoteTransitionHandler: Found filterPair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null windowingMode=undefined},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null windowingMode=undefined},{NOT atype=undefined independent=true modes=[] flags=NONE mustBeTask=true order=ANY topActivity=null launchCookie=null customAnim=true windowingMode=undefined}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@47210a0, appThread = android.app.IApplicationThread$Stub$Proxy@1620459, debugName = QuickstepLaunchHome }}
+04-07 12:58:22.599   986  1058 V WindowManagerShell:  Delegate animation for (#195) to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@47210a0, appThread = android.app.IApplicationThread$Stub$Proxy@1620459, debugName = QuickstepLaunchHome }
+04-07 12:58:22.599   986  1058 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@7c9dc
+04-07 12:58:22.605  1140  1140 D StateManager: createAtomicAnimation - fromState: Background, toState: Normal, partial trace:
+04-07 12:58:22.605  1140  1140 D StateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.prepareToAnimate(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:22)
+04-07 12:58:22.605  1140  1140 D StateManager: 	at com.android.quickstep.util.WorkspaceRevealAnim.<init>(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:11)
+04-07 12:58:22.605  1140  1140 D StateManager: 	at com.android.launcher3.QuickstepTransitionManager.createWallpaperOpenAnimations(go/retraceme 72a59688580715d19f0e415c69e80376c2f062d1648c80db6730905005a27c20:339)
+04-07 12:58:22.606  1140  1140 D b/311077782: LauncherAnimationRunner.setAnimation
+04-07 12:58:22.620   724   851 I ImeTracker: com.google.android.apps.nexuslauncher:dced4c42: onRequestHide at ORIGIN_SERVER reason HIDE_SAME_WINDOW_FOCUSED_WITHOUT_EDITOR fromUser false
+04-07 12:58:22.623  1381  1381 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2114 
+04-07 12:58:22.622  1140  1140 D InsetsController: hide(ime(), fromIme=false)
+04-07 12:58:22.622  1140  1140 I ImeTracker: com.google.android.apps.nexuslauncher:dced4c42: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+04-07 12:58:22.624  1381  1381 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+04-07 12:58:22.625  1381  1381 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1385 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+04-07 12:58:22.625  1381  1381 I AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():314 Update input view padding, extendsTouchBelowSpace=true, bottom inset=63
+04-07 12:58:22.627  1381  1381 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+04-07 12:58:22.632   724  1759 W PackageConfigPersister: App-specific configuration not found for packageName: com.google.android.apps.nexuslauncher and userId: 0
+04-07 12:58:22.940  1140  1140 D WorkspaceRevealAnim: onAnimationEnd: workspace alpha = 1.0
+04-07 12:58:22.945   986  1058 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#195) android.os.BinderProxy@2b3e4ab@0
+04-07 12:58:22.947   724   751 V WindowManager: Finish Transition (#195): created at 04-07 12:58:22.539 collect-started=0.084ms request-sent=0.155ms started=8.063ms ready=10.076ms sent=56.898ms commit=18.261ms finished=407.797ms
+04-07 12:58:22.947   986  1058 V WindowManagerShell: Track 0 became idle
+04-07 12:58:22.947   986  1058 V WindowManagerShell: All active transition animations finished
+04-07 12:58:22.958  1140  1140 D RecentsView: onTaskRemoved: 142, not handling task stack changes
+04-07 12:58:22.958  1140  1140 D RecentsView: onTaskRemoved: 142, not handling task stack changes
+04-07 12:58:22.960   566   566 E BpTransactionCompletedListener: Failed to transact (-32)
+04-07 12:58:23.257   724   832 D ActivityManager: freezing 17039 com.google.android.cellbroadcastreceiver
+04-07 12:58:23.258   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:23.259   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:23.259   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10194} in 0ms
+04-07 12:58:25.024   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:25.025   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:25.025   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10192} in 1ms
+04-07 12:58:25.025   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:25.026   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:25.026   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={20192} in 0ms
+04-07 12:58:25.976   724  1625 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+04-07 12:58:27.924 20296 20296 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.clearcut.bootcount.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentBoundBrokerService }
+04-07 12:58:28.894 20296 20296 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+04-07 12:58:29.517  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:58:31.775   724   832 D ActivityManager: freezing 16007 com.google.android.apps.messaging
+04-07 12:58:31.777   724   832 D ActivityManager: freezing 1928 android.process.acore
+04-07 12:58:31.912   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:31.912   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:31.912   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10095} in 1ms
+04-07 12:58:32.233   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.235   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.235   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.236   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.236   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.237   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.237   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.237   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.238   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.238   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.238   724   823 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10148} in 5ms
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.247   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={20148} in 0ms
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10164} in 0ms
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.248   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={20164} in 1ms
+04-07 12:58:32.793   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.794   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.794   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10144} in 2ms
+04-07 12:58:32.794   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:32.794   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:32.795   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={20144} in 1ms
+04-07 12:58:34.757   724   743 D WifiNl80211Manager: Scan result ready event
+04-07 12:58:34.757   724   743 D WifiNative: Scan result ready event
+04-07 12:58:34.769   724   884 D WificondScannerImpl: Filtering out 1 scan results.
+04-07 12:58:34.774   724   880 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+04-07 12:58:39.515  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:58:39.517   724  1759 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:42.238   724   832 D ActivityManager: freezing 4049 com.android.settings
+04-07 12:58:42.239   724   832 D ActivityManager: freezing 5728 com.android.keychain
+04-07 12:58:42.239   724   832 D ActivityManager: freezing 15718 com.google.android.apps.wellbeing
+04-07 12:58:42.239   724   832 D ActivityManager: freezing 12907 com.google.android.deskclock
+04-07 12:58:42.268   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.268   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.268   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10148} in 1ms
+04-07 12:58:42.314   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.315   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.315   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10164} in 1ms
+04-07 12:58:42.321   724   832 D ActivityManager: freezing 11454 com.google.android.gms
+04-07 12:58:42.322   724   832 D ActivityManager: freezing 13488 com.google.android.adservices.api
+04-07 12:58:42.322   724   832 D ActivityManager: freezing 2439 com.google.android.gms.unstable
+04-07 12:58:42.376   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.376   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.376   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10192} in 1ms
+04-07 12:58:42.598   724   832 D ActivityManager: freezing 4378 com.google.android.permissioncontroller
+04-07 12:58:42.613   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.613   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.613   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10215} in 0ms
+04-07 12:58:42.738   724   832 D ActivityManager: freezing 4508 com.google.android.rkpdapp
+04-07 12:58:42.753   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.753   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.753   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10209} in 1ms
+04-07 12:58:42.785   724   832 D ActivityManager: freezing 17018 com.google.android.settings.intelligence
+04-07 12:58:42.800   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+04-07 12:58:42.800   724   886 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+04-07 12:58:42.800   724   886 D InetDiagMessage: Destroyed live tcp sockets for uids={10144} in 0ms
+04-07 12:58:49.525   724   743 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:49.531  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:58:59.533   724  1759 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:58:59.541  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:59:09.544  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:59:09.543   724  1855 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:59:12.707  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: allSubInfos.size()=1
+04-07 12:59:12.707  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: newSubsInfoListPerPriority.size()=0
+04-07 12:59:12.707  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: no satellite subscription available
+04-07 12:59:13.301  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: allSubInfos.size()=1
+04-07 12:59:13.302  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: newSubsInfoListPerPriority.size()=0
+04-07 12:59:13.302  1111  1292 D SatelliteController: evaluateESOSProfilesPrioritization: no satellite subscription available
+04-07 12:59:15.731 20296 20296 I NearbyDiscovery: FastPairHandler: unregistering intent receivers [CONTEXT service_id=265 ]
+04-07 12:59:15.735 20296 20296 I NearbyDiscovery: DiscoveryService destroyed [CONTEXT service_id=265 ]
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: (REDACTED) PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, isScanningAllowed=%s
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: PureOffloadFastPairScanner: Skipping stop, already stopped scanning [CONTEXT service_id=265 ]
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: (REDACTED) ApFastPairScanner: isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+04-07 12:59:15.747 20296 20382 D BluetoothAdapter: isLeEnabled(): OFF
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: (REDACTED) ApFastPairScanner: eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, lockScanRate=%s, startScanningByLowPowerMode=%s
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: ApFastPairScanner: Skipping stop, already stopped scanning [CONTEXT service_id=265 ]
+04-07 12:59:15.747 20296 20382 I Nearby  : (REDACTED) Successfully shutdown executor %s.
+04-07 12:59:15.747 20296 20382 I NearbyDiscovery: FastPairController: unregister location ble observer [CONTEXT service_id=265 ]
+04-07 12:59:15.748 20296 20382 I NearbyDiscovery: FastPairController: removeAllEventStreamInitializationDevice [CONTEXT service_id=265 ]
+04-07 12:59:15.749 20296 20382 I NearbyDiscovery: FastPairController: destroyAllEventStreams [CONTEXT service_id=265 ]
+04-07 12:59:15.749 20296 20382 I NearbyDiscovery: (REDACTED) EventStreamManager: Disconnect all event streams, size=%s
+04-07 12:59:15.751 20296 20382 I NearbyDiscovery: FastPairController: unregister display observer [CONTEXT service_id=265 ]
+04-07 12:59:15.747 20296 20388 I NearbyDiscovery: (REDACTED) SdpManager: Remove all pending sdp actions (%s)
+04-07 12:59:15.755 20296 20382 I NearbyDiscovery: (REDACTED) Show notifications: %d total, no changes since last shown, no-op.
+04-07 12:59:15.755 20296 20382 I NearbyDiscovery: CasePairingHandler: Close DB. [CONTEXT service_id=265 ]
+04-07 12:59:15.756 20296 20382 D BluetoothAdapter: unregisterBluetoothConnectionCallback()
+04-07 12:59:15.761 20296 20382 I NearbyDiscovery: DiscoveryModule: EventLoop destroyed [CONTEXT service_id=265 ]
+04-07 12:59:19.560  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:59:19.564   724  1759 W IPCThreadState: Sending oneway calls to frozen process.
+04-07 12:59:27.218   724  1855 D TelephonyManager: requestModemActivityInfo: Sending result to app: ModemActivityInfo{ mTimestamp=65614573 mSleepTimeMs=6972 mIdleTimeMs=2324 mActivityStatsTechSpecificInfo=[{mRat=UNKNOWN,mFrequencyRange=UNKNOWN,mTxTimeMs[]=[166, 498, 996, 1328, 1494],mRxTimeMs=1494}]}
+04-07 12:59:29.559  1111  1292 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+04-07 12:59:29.565   724  1759 W IPCThreadState: Sending oneway calls to frozen process.

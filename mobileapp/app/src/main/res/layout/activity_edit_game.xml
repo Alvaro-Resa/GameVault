@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gv_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/gv_text_primary" />
+
+            <TextView
+                android:id="@+id/txtEditHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12dp"
+                android:layout_toEndOf="@id/btnBack"
+                android:text="Editor de Contenido"
+                android:textColor="@color/gv_text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgEditPreview"
+            android:layout_width="120dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_dark_card"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del archivo de imagen (ej: luffy.jpg)"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditImage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dark_card"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:hint="image_name.png"
+            android:textColorHint="@color/gv_text_secondary"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dark_card"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/lblEditCreator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autor / Desarrolladora"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditCreator"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dark_card"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/lblEditCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Géneros (separados por comas)"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditGenres"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dark_card"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción / Sinopsis"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditDesc"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/bg_dark_card"
+            android:gravity="top"
+            android:padding="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha (YYYY-MM-DD)"
+            android:textColor="@color/gv_text_secondary"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEditDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_dark_card"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/gv_text_primary"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Guardar Cambios"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/gv_red_glow"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+</ScrollView>

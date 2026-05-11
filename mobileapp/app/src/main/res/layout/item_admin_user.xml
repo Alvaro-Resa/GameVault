@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardBackgroundColor="@color/gv_card_background"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtAdminUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gv_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdminToggleBan"
+            android:layout_marginEnd="16dp"
+            tools:text="GamerGirl99" />
+
+        <TextView
+            android:id="@+id/txtAdminUserEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gv_text_secondary"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAdminUserName"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdminToggleBan"
+            android:layout_marginEnd="16dp"
+            tools:text="gamer99@example.com" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAdminUserEmail">
+
+            <!-- Role Pill -->
+            <TextView
+                android:id="@+id/txtAdminRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rating_tag"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/gv_text_primary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                tools:text="ADMIN" />
+
+            <!-- State Pill -->
+            <TextView
+                android:id="@+id/txtAdminState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_rating_tag"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                tools:text="ACTIVE" />
+        </LinearLayout>
+
+        <!-- Ban / Unban Button -->
+        <Button
+            android:id="@+id/btnAdminToggleBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ban"
+            android:backgroundTint="#F44336"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

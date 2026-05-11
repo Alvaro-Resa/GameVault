@@ -1,0 +1,35 @@
+﻿--------- beginning of main
+04-07 10:37:38.489 17740 17740 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: FATAL EXCEPTION: main
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: Process: com.example.gamevault, PID: 17740
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: java.lang.IllegalArgumentException: Parameter type must not include a type variable or wildcard: java.util.Map<java.lang.String, ?> (parameter #1)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime:     for method ApiService.addToLibrary
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.Utils.methodError(Utils.java:54)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.Utils.methodError(Utils.java:43)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.Utils.parameterError(Utils.java:64)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.RequestFactory$Builder.validateResolvableType(RequestFactory.java:813)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.RequestFactory$Builder.parseParameterAnnotation(RequestFactory.java:767)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.RequestFactory$Builder.parseParameter(RequestFactory.java:325)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.RequestFactory$Builder.build(RequestFactory.java:206)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.RequestFactory.parseAnnotations(RequestFactory.java:67)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.ServiceMethod.parseAnnotations(ServiceMethod.java:26)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.Retrofit.loadServiceMethod(Retrofit.java:202)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at retrofit2.Retrofit$1.invoke(Retrofit.java:160)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at java.lang.reflect.Proxy.invoke(Proxy.java:1006)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at $Proxy2.addToLibrary(Unknown Source)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at com.example.gamevault.GameDetailActivity.saveLibraryData(GameDetailActivity.kt:209)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at com.example.gamevault.GameDetailActivity.setupUI$lambda$4(GameDetailActivity.kt:81)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at com.example.gamevault.GameDetailActivity$$ExternalSyntheticLambda6.onClick(D8$$SyntheticClass:0)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.view.View.performClick(View.java:8083)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.view.View.performClickInternal(View.java:8060)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.view.View.-$$Nest$mperformClickInternal(Unknown Source:0)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.view.View$PerformClick.run(View.java:31549)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:995)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:103)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:248)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:338)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9067)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+04-07 10:37:38.491 17740 17740 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)

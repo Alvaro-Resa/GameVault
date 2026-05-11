@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gv_background">#161618</color>
+    <color name="gv_primary">#FF0033</color>
+    <color name="gv_primary_dark">#CC0029</color>
+    <color name="gv_red_glow">#FF0033</color>
+    <color name="gv_red_glow_dim">#4DFF0033</color>
+
+    <color name="gv_text_primary">#FFFFFF</color>
+    <color name="gv_text_secondary">#BBBBBB</color>
+    <color name="gv_text_hint">#888888</color>
+
+    <color name="gv_input_bg">#1A1A1A</color>
+    <color name="gv_button_disabled">#333333</color>
+    <color name="gv_card_bg">#1A1A1A</color>
+    <color name="gv_card_background">#1A1A1A</color>
+    <color name="gv_nav_inactive">#888888</color>
+</resources>
