@@ -21,7 +21,7 @@ const db = mysql.createConnection({
     database: process.env.DB_NAME
 });
 
-db.connect(err => {
+db.connect(err => { 
     if (err) throw err;
     console.log('¡Conectado a la base de datos!');
 });
@@ -54,27 +54,29 @@ const verifyToken = (req, res, next) => {
 
 // MÓDULO 1: GESTIÓN DE JUEGOS
 app.get('/api/games', (req, res) => {
+    const { sort } = req.query; 
+    let orderBy = "g.title ASC"; 
+
+    if (sort === 'rating') orderBy = "g.average_rating DESC";
+    if (sort === 'date') orderBy = "g.release_date DESC";
+
     const sql = `
         SELECT g.*, d.name as developer_name, 
         (SELECT GROUP_CONCAT(gn.name SEPARATOR ', ') 
-         FROM Game_Genres gg 
-         JOIN Genres gn ON gg.genre_id = gn.id 
+         FROM game_genres gg 
+         JOIN genres gn ON gg.genre_id = gn.id 
          WHERE gg.game_id = g.id) as genre_name
-        FROM Games g 
-        LEFT JOIN Developers d ON g.developer_id = d.id`;
+        FROM games g 
+        LEFT JOIN developers d ON g.developer_id = d.id
+        ORDER BY ${orderBy}`;
 
     db.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
-        const processedResults = results.map(game => ({
-            ...game,
-            image_url: game.image ? `http://10.0.2.2:3000/imgBBDD/${game.image}` : null
-        }));
-        res.json(processedResults);
+        res.json(results);
     });
 });
 
 app.delete('/api/games/:id', verifyToken, (req, res) => {
-    // Only allow admin conceptually, but since we don't pass role in token currently, we'll just execute it
     db.query("DELETE FROM Games WHERE id = ?", [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ message: "Game deleted successfully" });
@@ -162,10 +164,8 @@ app.post('/api/users/login', (req, res) => {
                     transporter.sendMail(mailOptions, (mailErr, info) => {
                         if (mailErr) {
                             console.error("Error SMTP al enviar correo:", mailErr);
-                            // Devolvemos el error específico para verlo en el Toast de Android
                             return res.status(500).json({ error: `SMTP Error: ${mailErr.message}` });
                         }
-                        console.log(`Correo OTP enviado con éxito a: ${user.email}`);
                         res.status(200).json({ message: "OTP sent", userId: user.id });
                     });
                 });
@@ -223,7 +223,6 @@ app.put('/api/users/:id/ban', verifyToken, (req, res) => {
     });
 });
 
-// 1. Obtener perfil de un usuario específico
 app.get('/api/users/:id', verifyToken, (req, res) => {
     const sql = "SELECT id, username, nickname, email, role, state, bio, avatar_img FROM Users WHERE id = ?";
     db.query(sql, [req.params.id], (err, results) => {
@@ -233,7 +232,6 @@ app.get('/api/users/:id', verifyToken, (req, res) => {
     });
 });
 
-// 2. Actualizar perfil (Nickname, Bio y Foto)
 app.patch('/api/users/:id', verifyToken, (req, res) => {
     const { nickname, bio, avatar_img } = req.body;
     const sql = "UPDATE Users SET nickname = ?, bio = ?, avatar_img = ? WHERE id = ?";
@@ -243,7 +241,6 @@ app.patch('/api/users/:id', verifyToken, (req, res) => {
     });
 });
 
-// 3. Obtener estadísticas reales del usuario
 app.get('/api/users/:id/stats', verifyToken, (req, res) => {
     const userId = req.params.id;
     const sql = `
@@ -259,19 +256,12 @@ app.get('/api/users/:id/stats', verifyToken, (req, res) => {
     });
 });
 
-// MÓDULO 3: BIBLIOTECA
+// MÓDULO 3: BIBLIOTECA (¡CON FIX DEL SERVER ERROR!)
 app.get('/api/library/:userId', verifyToken, (req, res) => {
     const sql = `
         SELECT 
-            g.id AS id, 
-            g.title, 
-            g.description,
-            g.release_date, 
-            g.image, 
-            g.developer_id, 
-            g.average_rating,
-            gl.status, 
-            gl.hours_played,
+            g.id AS id, g.title, g.description, g.release_date, g.image, 
+            g.developer_id, g.average_rating, gl.status, gl.hours_played,
             d.name as developer_name,
             (SELECT GROUP_CONCAT(gn.name SEPARATOR ', ') 
              FROM Game_Genres gg 
@@ -284,14 +274,9 @@ app.get('/api/library/:userId', verifyToken, (req, res) => {
         WHERE l.user_id = ?`;
 
     db.query(sql, [req.params.userId], (err, results) => {
-        if (err) {
-            console.error("Error en la consulta de biblioteca:", err);
-            return res.status(500).json({ error: err.message });
-        }
-        
+        if (err) return res.status(500).json({ error: err.message });
         const processedResults = results.map(game => ({
             ...game,
-            // Mantenemos tu ruta original para que las imágenes sigan funcionando
             image_url: game.image ? `http://10.0.2.2:3000/imgBBDD/${game.image}` : null
         }));
         res.json(processedResults);
@@ -300,26 +285,50 @@ app.get('/api/library/:userId', verifyToken, (req, res) => {
 
 app.post('/api/library', verifyToken, (req, res) => {
     const { user_id, game_id, status, hours_played } = req.body;
-    db.query("SELECT id FROM Library WHERE user_id = ?", [user_id], (err, libResult) => {
-        if (err || libResult.length === 0) return res.status(404).json({ message: "Library not found" });
-        const libraryId = libResult[0].id;
 
-        const checkSql = "SELECT * FROM games_library WHERE library_id = ? AND game_id = ?";
-        db.query(checkSql, [libraryId, game_id], (err, exists) => {
-            if (exists.length > 0) {
-                db.query("UPDATE games_library SET status = ?, hours_played = ? WHERE library_id = ? AND game_id = ?", 
-                    [status, hours_played, libraryId, game_id], (err) => {
-                    if (err) return res.status(500).json({ error: err.message });
-                    res.json({ message: "Library updated" });
-                });
-            } else {
-                db.query("INSERT INTO games_library (library_id, game_id, status, hours_played) VALUES (?, ?, ?, ?)", 
-                    [libraryId, game_id, status, hours_played], (err) => {
-                    if (err) return res.status(500).json({ error: err.message });
-                    res.status(201).json({ message: "Game added successfully" });
-                });
-            }
-        });
+    // Validación de seguridad: evitar nulos
+    if (!user_id || !game_id) {
+        return res.status(400).json({ error: "user_id y game_id son obligatorios" });
+    }
+
+    // 1. Buscamos o creamos la cabecera en 'Library'
+    db.query("SELECT id FROM Library WHERE user_id = ?", [user_id], (err, results) => {
+        if (err) return res.status(500).json({ error: "Error en Library: " + err.message });
+
+        const proceedWithInsert = (libId) => {
+            // Primero verificamos si ya existe el juego en la biblioteca para decidir si UPDATE o INSERT
+            // Ya que ON DUPLICATE KEY necesita una PRIMARY KEY única en el SQL que no está definida
+            const checkSql = "SELECT * FROM games_library WHERE library_id = ? AND game_id = ?";
+            
+            db.query(checkSql, [libId, game_id], (checkErr, checkRes) => {
+                if (checkErr) return res.status(500).json({ error: checkErr.message });
+
+                if (checkRes.length > 0) {
+                    // Si existe, actualizamos
+                    const updateSql = "UPDATE games_library SET status = ?, hours_played = ? WHERE library_id = ? AND game_id = ?";
+                    db.query(updateSql, [status, hours_played || 0, libId, game_id], (upErr) => {
+                        if (upErr) return res.status(500).json({ error: upErr.message });
+                        res.json({ message: "Juego actualizado" });
+                    });
+                } else {
+                    // Si no existe, insertamos
+                    const insertSql = "INSERT INTO games_library (library_id, game_id, status, hours_played) VALUES (?, ?, ?, ?)";
+                    db.query(insertSql, [libId, game_id, status, hours_played || 0], (inErr) => {
+                        if (inErr) return res.status(500).json({ error: inErr.message });
+                        res.status(201).json({ message: "Juego guardado" });
+                    });
+                }
+            });
+        };
+
+        if (results.length === 0) {
+            db.query("INSERT INTO Library (user_id) VALUES (?)", [user_id], (errNew, resultNew) => {
+                if (errNew) return res.status(500).json({ error: "No se pudo crear Library: " + errNew.message });
+                proceedWithInsert(resultNew.insertId);
+            });
+        } else {
+            proceedWithInsert(results[0].id);
+        }
     });
 });
 
@@ -338,19 +347,10 @@ app.put('/api/library/:userId/:gameId', verifyToken, (req, res) => {
 
 // MÓDULO 4: RESEÑAS
 app.post('/api/reviews', verifyToken, (req, res) => {
-    console.log("📢 RECIBIENDO RESEÑA DESDE ANDROID:", req.body);
-
-
     const { user_id, game_id, rating, title, content } = req.body; 
-    
     const sql = "INSERT INTO Reviews (user_id, game_id, rating, title, content) VALUES (?, ?, ?, ?, ?)";
-    
     db.query(sql, [user_id, game_id, rating, title, content], (err, result) => {
-        if (err) {
-            console.error("Error de MySQL al insertar:", err.message);
-            return res.status(500).json({ error: err.message });
-        }
-        console.log("¡Reseña guardada con éxito!");
+        if (err) return res.status(500).json({ error: err.message });
         res.status(201).json({ message: "Review added", reviewId: result.insertId });
     });
 });
@@ -363,9 +363,7 @@ app.get('/api/games/:gameId/reviews', (req, res) => {
 });
 
 app.put('/api/reviews/:id', verifyToken, (req, res) => {
-    // SOLUCIÓN: También actualizamos el título si el usuario edita la reseña
     const { rating, title, content } = req.body;
-    
     db.query("UPDATE Reviews SET rating = ?, title = ?, content = ? WHERE id = ?", [rating, title, content, req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ message: "Review updated" });
@@ -386,7 +384,7 @@ app.get('/api/users/:userId/reviews', (req, res) => {
     });
 });
 
-// MÓDULO 5: AUXILIARES
+// MÓDULO 5: AUXILIARES E INFORMACIÓN (AQUÍ ESTÁ LA NUEVA RUTA DE DEVELOPERS)
 app.get('/api/genres', (req, res) => {
     db.query("SELECT * FROM Genres", (err, results) => {
         if (err) return res.status(500).json(err);
@@ -401,33 +399,59 @@ app.get('/api/developers', (req, res) => {
     });
 });
 
-// MÓDULO 6: GESTIÓN DE MANGAS 
+app.get('/api/developers/:id', (req, res) => {
+    const devId = req.params.id;
+    db.query("SELECT * FROM developers WHERE id = ?", [devId], (err, devResults) => {
+        if (err || devResults.length === 0) return res.status(404).json({ message: "Developer not found" });
 
-// 1. Obtener todos los mangas
+        const developer = devResults[0];
+        // Importante: Asegurar que la ruta de la imagen sea correcta para el adaptador de Android
+        const sqlGames = `SELECT *, CONCAT('http://10.0.2.2:3000/imgBBDD/Games/', image) as image_url FROM games WHERE developer_id = ?`;
+            
+        db.query(sqlGames, [devId], (err, gameResults) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ 
+                id: developer.id, 
+                name: developer.name, 
+                works: gameResults 
+            });
+        });
+    });
+});
+
+// MÓDULO 6: GESTIÓN DE MANGAS 
+// Obtener todos los mangas (Corregido para el Menú Principal)
 app.get('/api/mangas', (req, res) => {
+    const { sort } = req.query;
+    let orderBy = "m.title ASC";
+
+    if (sort === 'rating') orderBy = "m.average_rating DESC";
+    if (sort === 'date') orderBy = "m.release_date DESC";
+
     const sql = `
         SELECT m.*, p.name as publisher_name, 
         (SELECT GROUP_CONCAT(a.name SEPARATOR ', ') 
          FROM manga_authors ma 
          JOIN authors a ON ma.author_id = a.id 
-         WHERE ma.manga_id = m.id) as author_names
+         WHERE ma.manga_id = m.id) as author_names,
+        (SELECT author_id FROM manga_authors WHERE manga_id = m.id LIMIT 1) as primary_author_id
         FROM mangas m 
-        LEFT JOIN publishers p ON m.publisher_id = p.id`;
+        LEFT JOIN publishers p ON m.publisher_id = p.id
+        ORDER BY ${orderBy}`;
 
     db.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
-        const processedResults = results.map(manga => ({
-            ...manga,
-            image_url: manga.image ? `http://10.0.2.2:3000/imgBBDD/${manga.image}` : null
+        
+        // Añadimos el mapeo de la imagen para que Android pueda cargarla
+        const processed = results.map(m => ({
+            ...m,
+            image_url: m.image ? `http://10.0.2.2:3000/imgBBDD/Mangas/${m.image}` : null
         }));
-        res.json(processedResults);
+        res.json(processed);
     });
 });
 
-// IMPORTANTE: Las rutas con paths específicos DEBEN ir ANTES de /api/mangas/:id
-// De lo contrario Express trata "library" como el valor del parámetro :id
-
-// 3. Biblioteca de Mangas del Usuario
+// Biblioteca de Mangas del Usuario (CON FIX DEL SERVER ERROR!)
 app.get('/api/mangas/library/:userId', verifyToken, (req, res) => {
     const sql = `
         SELECT m.*, ml.status as user_status, ml.volumes_read, ml.personal_rating, p.name as publisher_name,
@@ -451,27 +475,51 @@ app.get('/api/mangas/library/:userId', verifyToken, (req, res) => {
     });
 });
 
-// 4. Agregar/Actualizar manga en biblioteca
+// Agregar/Actualizar manga en biblioteca (Auto-crea Library si no existe)
 app.post('/api/mangas/library', verifyToken, (req, res) => {
     const { user_id, manga_id, status, volumes_read, personal_rating } = req.body;
-    
-    db.query("SELECT id FROM library WHERE user_id = ?", [user_id], (err, libRes) => {
-        if (err || libRes.length === 0) return res.status(404).json({ message: "Biblioteca no encontrada" });
-        const libraryId = libRes[0].id;
 
-        const sql = `
-            INSERT INTO mangas_library (library_id, manga_id, status, volumes_read, personal_rating) 
-            VALUES (?, ?, ?, ?, ?) 
-            ON DUPLICATE KEY UPDATE status = VALUES(status), volumes_read = VALUES(volumes_read), personal_rating = VALUES(personal_rating)`;
+    if (!user_id || !manga_id) {
+        return res.status(400).json({ error: "user_id y manga_id son obligatorios" });
+    }
+    
+    db.query("SELECT id FROM Library WHERE user_id = ?", [user_id], (err, libRes) => {
+        if (err) return res.status(500).json({ error: err.message });
         
-        db.query(sql, [libraryId, manga_id, status, volumes_read, personal_rating], (err) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.json({ message: "Biblioteca de manga actualizada" });
-        });
+        const saveManga = (libraryId) => {
+            const checkSql = "SELECT * FROM mangas_library WHERE library_id = ? AND manga_id = ?";
+            
+            db.query(checkSql, [libraryId, manga_id], (checkErr, checkRes) => {
+                if (checkErr) return res.status(500).json({ error: checkErr.message });
+
+                if (checkRes.length > 0) {
+                    const updateSql = "UPDATE mangas_library SET status = ?, volumes_read = ?, personal_rating = ? WHERE library_id = ? AND manga_id = ?";
+                    db.query(updateSql, [status, volumes_read || 0, personal_rating || null, libraryId, manga_id], (err) => {
+                        if (err) return res.status(500).json({ error: err.message });
+                        res.json({ message: "Manga actualizado" });
+                    });
+                } else {
+                    const insertSql = "INSERT INTO mangas_library (library_id, manga_id, status, volumes_read, personal_rating) VALUES (?, ?, ?, ?, ?)";
+                    db.query(insertSql, [libraryId, manga_id, status, volumes_read || 0, personal_rating || null], (err) => {
+                        if (err) return res.status(500).json({ error: err.message });
+                        res.status(201).json({ message: "Manga guardado" });
+                    });
+                }
+            });
+        };
+
+        if (libRes.length === 0) {
+            db.query("INSERT INTO Library (user_id) VALUES (?)", [user_id], (err, newLib) => {
+                if (err) return res.status(500).json({ error: err.message });
+                saveManga(newLib.insertId);
+            });
+        } else {
+            saveManga(libRes[0].id);
+        }
     });
 });
 
-// 7. Reseñas de un manga específico — también va ANTES de /:id para evitar conflicto
+
 app.get('/api/mangas/:mangaId/reviews', (req, res) => {
     db.query("SELECT * FROM Reviews WHERE manga_id = ?", [req.params.mangaId], (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -479,14 +527,15 @@ app.get('/api/mangas/:mangaId/reviews', (req, res) => {
     });
 });
 
-// 2. Detalle de un manga por ID — va DESPUÉS de todas las rutas específicas
+// Detalle de un manga por ID (Con primary_author_id para el botón)
 app.get('/api/mangas/:id', (req, res) => {
     const sql = `
         SELECT m.*, p.name as publisher_name, 
         (SELECT GROUP_CONCAT(a.name SEPARATOR ', ') 
          FROM manga_authors ma 
          JOIN authors a ON ma.author_id = a.id 
-         WHERE ma.manga_id = m.id) as author_names
+         WHERE ma.manga_id = m.id) as author_names,
+        (SELECT author_id FROM manga_authors WHERE manga_id = m.id LIMIT 1) as primary_author_id
         FROM mangas m 
         LEFT JOIN publishers p ON m.publisher_id = p.id
         WHERE m.id = ?`;
@@ -496,13 +545,12 @@ app.get('/api/mangas/:id', (req, res) => {
         if (results.length === 0) return res.status(404).json({ message: "Manga no encontrado" });
         
         const manga = results[0];
-        manga.image_url = manga.image ? `http://10.0.2.2:3000/imgBBDD/${manga.image}` : null;
+        manga.image_url = manga.image ? `http://10.0.2.2:3000/imgBBDD/Mangas/${manga.image}` : null;
             
         res.json(manga);
     });
 });
 
-// Crear manga (Admin)
 app.post('/api/mangas', verifyToken, (req, res) => {
     const { title, synopsis, release_date, genres, image, demographic } = req.body;
     const sql = "INSERT INTO mangas (title, synopsis, release_date, genres, image, demographic) VALUES (?, ?, ?, ?, ?, ?)";
@@ -512,7 +560,6 @@ app.post('/api/mangas', verifyToken, (req, res) => {
     });
 });
 
-// Actualizar manga (Admin)
 app.put('/api/mangas/:id', verifyToken, (req, res) => {
     const { title, synopsis, release_date, genres, image, demographic } = req.body;
     const sql = "UPDATE mangas SET title = ?, synopsis = ?, release_date = ?, genres = ?, image = ?, demographic = ? WHERE id = ?";
@@ -522,7 +569,6 @@ app.put('/api/mangas/:id', verifyToken, (req, res) => {
     });
 });
 
-// Eliminar manga (Admin)
 app.delete('/api/mangas/:id', verifyToken, (req, res) => {
     db.query("DELETE FROM mangas WHERE id = ?", [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -530,11 +576,30 @@ app.delete('/api/mangas/:id', verifyToken, (req, res) => {
     });
 });
 
-// 5. Auxiliares: Autores y Editoriales
 app.get('/api/authors', (req, res) => {
     db.query("SELECT * FROM authors ORDER BY name ASC", (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json(results);
+    });
+});
+
+app.get('/api/authors/:id', (req, res) => {
+    const authorId = req.params.id;
+    db.query("SELECT * FROM authors WHERE id = ?", [authorId], (err, authorResults) => {
+        if (err || authorResults.length === 0) return res.status(404).json({ message: "Author not found" });
+
+        const author = authorResults[0];
+        const sqlMangas = `
+            SELECT m.*, CONCAT('http://10.0.2.2:3000/imgBBDD/Mangas/', m.image) as image_url,
+            (SELECT GROUP_CONCAT(a.name SEPARATOR ', ') FROM manga_authors ma2 JOIN authors a ON ma2.author_id = a.id WHERE ma2.manga_id = m.id) as author_names
+            FROM mangas m 
+            JOIN manga_authors ma ON m.id = ma.manga_id 
+            WHERE ma.author_id = ?`;
+            
+        db.query(sqlMangas, [authorId], (err, mangaResults) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ ...author, works: mangaResults });
+        });
     });
 });
 
@@ -545,7 +610,6 @@ app.get('/api/publishers', (req, res) => {
     });
 });
 
-// 6. Detalle de Editorial 
 app.get('/api/publishers/:id/mangas', (req, res) => {
     const sql = "SELECT * FROM mangas WHERE publisher_id = ?";
     db.query(sql, [req.params.id], (err, results) => {

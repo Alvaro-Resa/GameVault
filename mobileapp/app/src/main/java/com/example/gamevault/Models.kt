@@ -40,7 +40,8 @@ data class Manga(
     val author_names: String? = null,
     val genres: String? = null,
     val demographic: String? = null,
-    val volumes_read: Int? = 0
+    val volumes_read: Int? = 0,
+    val primary_author_id: Int? = null
 ) : VaultItem {
     override val display_genres: String? get() {
         val parts = mutableListOf<String>()
@@ -49,6 +50,28 @@ data class Manga(
         return if (parts.isEmpty()) "N/A" else parts.joinToString(" • ")
     }
 }
+
+data class LibraryPayload(
+    val user_id: Int,
+    val game_id: Int? = null,
+    val manga_id: Int? = null,
+    val status: String,
+    val hours_played: Int? = null,
+    val volumes_read: Int? = null
+)
+
+data class AuthorResponse(
+    val id: Int,
+    val name: String,
+    val biography: String?,
+    val works: List<Manga> // Lista de sus obras
+)
+
+data class DeveloperResponse(
+    val id: Int,
+    val name: String,
+    val works: List<Game>
+)
 
 // Añadir a Models.kt
 data class UserStats(

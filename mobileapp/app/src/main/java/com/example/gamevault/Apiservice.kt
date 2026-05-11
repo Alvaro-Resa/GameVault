@@ -98,14 +98,14 @@ interface ApiService {
     fun getUserLibrary(@Path("userId") userId: Int): Call<List<Game>>
 
     @POST("api/library")
-    fun addToLibrary(@Body data: Map<String, Any>): Call<Map<String, Any>>
+    fun addToLibrary(@Body data: LibraryPayload): Call<Map<String, Any>>
 
     // Mangas del usuario
     @GET("api/mangas/library/{userId}")
     fun getUserMangaLibrary(@Path("userId") userId: Int): Call<List<Manga>>
 
     @POST("api/mangas/library")
-    fun addMangaToLibrary(@Body data: Map<String, Any>): Call<Map<String, Any>>
+    fun addMangaToLibrary(@Body data: LibraryPayload): Call<Map<String, Any>>
 
 
     // ==========================================
@@ -129,6 +129,13 @@ interface ApiService {
     // ==========================================
     @GET("api/authors")
     fun getAllAuthors(): Call<List<Author>>
+
+    @GET("api/authors/{id}")
+    fun getAuthorDetail(@Path("id") id: Int): Call<AuthorResponse>
+
+    // NUEVA RUTA: Detalle del desarrollador del juego
+    @GET("api/developers/{id}")
+    fun getDeveloperDetail(@Path("id") id: Int): Call<DeveloperResponse>
 
     @GET("api/publishers") // Útil para el EditManga
     fun getAllPublishers(): Call<List<Publisher>>

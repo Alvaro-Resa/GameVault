@@ -110,24 +110,57 @@ class GameDetailActivity : AppCompatActivity() {
 
     private fun updateUI(item: VaultItem) {
         findViewById<TextView>(R.id.txtGameTitle).text = item.title
-        findViewById<TextView>(R.id.txtReleaseYear).text = item.release_date?.take(4) ?: "N/A"
-        findViewById<TextView>(R.id.txtTopRating).text = "★ ${item.average_rating ?: "0.0"}"
         findViewById<TextView>(R.id.txtGenresPill).text = item.display_genres
 
-        // Casting manual para campos específicos que no están en la interfaz
+        val txtCreator = findViewById<TextView>(R.id.txtDevName)
+
         if (item is Game) {
-            findViewById<TextView>(R.id.txtDevName).text = item.developer_name
+            txtCreator.text = item.developer_name
             findViewById<TextView>(R.id.txtSynopsis).text = item.description
+
+            // Clic para Desarrollador de Juegos
+            txtCreator.setOnClickListener {
+                val intent = Intent(this, DeveloperDetailActivity::class.java)
+                intent.putExtra("DEVELOPER_ID", item.developer_id)
+                intent.putExtra("DEVELOPER_NAME", item.developer_name)
+                startActivity(intent)
+            }
         } else if (item is Manga) {
-            findViewById<TextView>(R.id.txtDevName).text = item.author_names
+            txtCreator.text = item.author_names
             findViewById<TextView>(R.id.txtSynopsis).text = item.synopsis
+
+            // Clic para Autor de Mangas
+            txtCreator.setOnClickListener {
+                val intent = Intent(this, AuthorDetailActivity::class.java)
+                intent.putExtra("AUTHOR_ID", item.primary_author_id)
+                intent.putExtra("AUTHOR_NAME", item.author_names)
+                startActivity(intent)
+            }
         }
 
         val folder = if (isManga) "Mangas" else "Games"
-        val url = "http://10.0.2.2:3000/imgBBDD/$folder/${item.image}"
-        Glide.with(this).load(url).into(findViewById(R.id.imgGameCover))
+        Glide.with(this)
+            .load("http://10.0.2.2:3000/imgBBDD/$folder/${item.image}")
+            .into(findViewById(R.id.imgGameCover))
+    }
 
-        if (currentUserId != -1) fetchLibraryState()
+    // Funciones para separar los destinos
+    private fun openAuthorDetail(authorId: Int?, authorName: String?) {
+        if (authorId == null || authorId == -1) return
+        val intent = Intent(this, AuthorDetailActivity::class.java).apply {
+            putExtra("AUTHOR_ID", authorId)
+            putExtra("AUTHOR_NAME", authorName)
+        }
+        startActivity(intent)
+    }
+
+    private fun openDeveloperDetail(devId: Int?, devName: String?) {
+        if (devId == null || devId == -1) return
+        val intent = Intent(this, DeveloperDetailActivity::class.java).apply {
+            putExtra("DEVELOPER_ID", devId)
+            putExtra("DEVELOPER_NAME", devName)
+        }
+        startActivity(intent)
     }
 
     private fun fetchLibraryState() {
@@ -160,25 +193,32 @@ class GameDetailActivity : AppCompatActivity() {
     }
 
     private fun saveLibraryData() {
-        val status = findViewById<Button>(R.id.btnAddToLibrary).text.toString().lowercase()
+        val statusText = findViewById<Button>(R.id.btnAddToLibrary).text.toString().lowercase()
         val value = findViewById<EditText>(R.id.etHoursPlayed).text.toString().toIntOrNull() ?: 0
 
-        val payload = mutableMapOf<String, Any>("user_id" to currentUserId, "status" to status)
-        if (isManga) {
-            payload["manga_id"] = itemId
-            payload["volumes_read"] = value
-        } else {
-            payload["game_id"] = itemId
-            payload["hours_played"] = value
-        }
+        val payload = LibraryPayload(
+            user_id = currentUserId,
+            status = statusText,
+            game_id = if (isManga) null else itemId,
+            manga_id = if (isManga) itemId else null,
+            hours_played = if (isManga) null else value,
+            volumes_read = if (isManga) value else null
+        )
 
         val api = RetrofitClient.getApiService(this)
         val call = if (isManga) api.addMangaToLibrary(payload) else api.addToLibrary(payload)
+
         call.enqueue(object : Callback<Map<String, Any>> {
             override fun onResponse(call: Call<Map<String, Any>>, response: Response<Map<String, Any>>) {
-                Toast.makeText(this@GameDetailActivity, "Saved!", Toast.LENGTH_SHORT).show()
+                if (response.isSuccessful) {
+                    Toast.makeText(this@GameDetailActivity, "Saved to Library!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@GameDetailActivity, "Server Error", Toast.LENGTH_SHORT).show()
+                }
             }
-            override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {}
+            override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {
+                Toast.makeText(this@GameDetailActivity, "Network Error", Toast.LENGTH_SHORT).show()
+            }
         })
     }
 
