@@ -286,35 +286,50 @@ app.get('/api/library/:userId', verifyToken, (req, res) => {
 app.post('/api/library', verifyToken, (req, res) => {
     const { user_id, game_id, status, hours_played } = req.body;
 
-    // Validación de seguridad: evitar nulos
+    // LOG 1: Ver qué datos están llegando desde Android
+    console.log("--- INTENTO DE GUARDADO EN BIBLIOTECA ---");
+    console.log("Datos recibidos:", { user_id, game_id, status, hours_played });
+
     if (!user_id || !game_id) {
+        console.error("ERROR: Faltan IDs obligatorios");
         return res.status(400).json({ error: "user_id y game_id son obligatorios" });
     }
 
     // 1. Buscamos o creamos la cabecera en 'Library'
     db.query("SELECT id FROM Library WHERE user_id = ?", [user_id], (err, results) => {
-        if (err) return res.status(500).json({ error: "Error en Library: " + err.message });
+        if (err) {
+            console.error("ERROR SQL (Buscando Library):", err.sqlMessage || err);
+            return res.status(500).json({ error: "Error en Library: " + err.message });
+        }
 
         const proceedWithInsert = (libId) => {
-            // Primero verificamos si ya existe el juego en la biblioteca para decidir si UPDATE o INSERT
-            // Ya que ON DUPLICATE KEY necesita una PRIMARY KEY única en el SQL que no está definida
-            const checkSql = "SELECT * FROM games_library WHERE library_id = ? AND game_id = ?";
+            console.log("Usando Library ID:", libId);
             
+            const checkSql = "SELECT * FROM games_library WHERE library_id = ? AND game_id = ?";
             db.query(checkSql, [libId, game_id], (checkErr, checkRes) => {
-                if (checkErr) return res.status(500).json({ error: checkErr.message });
+                if (checkErr) {
+                    console.error("ERROR SQL (Verificando existencia):", checkErr.sqlMessage || checkErr);
+                    return res.status(500).json({ error: checkErr.message });
+                }
 
                 if (checkRes.length > 0) {
-                    // Si existe, actualizamos
+                    console.log("El juego ya existe, actualizando...");
                     const updateSql = "UPDATE games_library SET status = ?, hours_played = ? WHERE library_id = ? AND game_id = ?";
                     db.query(updateSql, [status, hours_played || 0, libId, game_id], (upErr) => {
-                        if (upErr) return res.status(500).json({ error: upErr.message });
+                        if (upErr) {
+                            console.error("ERROR SQL (Update):", upErr.sqlMessage || upErr);
+                            return res.status(500).json({ error: upErr.message });
+                        }
                         res.json({ message: "Juego actualizado" });
                     });
                 } else {
-                    // Si no existe, insertamos
+                    console.log("El juego es nuevo, insertando...");
                     const insertSql = "INSERT INTO games_library (library_id, game_id, status, hours_played) VALUES (?, ?, ?, ?)";
                     db.query(insertSql, [libId, game_id, status, hours_played || 0], (inErr) => {
-                        if (inErr) return res.status(500).json({ error: inErr.message });
+                        if (inErr) {
+                            console.error("ERROR SQL (Insert):", inErr.sqlMessage || inErr);
+                            return res.status(500).json({ error: inErr.message });
+                        }
                         res.status(201).json({ message: "Juego guardado" });
                     });
                 }
@@ -322,8 +337,12 @@ app.post('/api/library', verifyToken, (req, res) => {
         };
 
         if (results.length === 0) {
+            console.log("No existe Library para este usuario. Creando una...");
             db.query("INSERT INTO Library (user_id) VALUES (?)", [user_id], (errNew, resultNew) => {
-                if (errNew) return res.status(500).json({ error: "No se pudo crear Library: " + errNew.message });
+                if (errNew) {
+                    console.error("ERROR SQL (Creando Library):", errNew.sqlMessage || errNew);
+                    return res.status(500).json({ error: "No se pudo crear Library: " + errNew.message });
+                }
                 proceedWithInsert(resultNew.insertId);
             });
         } else {
@@ -476,44 +495,74 @@ app.get('/api/mangas/library/:userId', verifyToken, (req, res) => {
 });
 
 // Agregar/Actualizar manga en biblioteca (Auto-crea Library si no existe)
+// Add or update manga in library
 app.post('/api/mangas/library', verifyToken, (req, res) => {
     const { user_id, manga_id, status, volumes_read, personal_rating } = req.body;
 
+    console.log("--- INTENTO DE GUARDADO DE MANGA ---");
+    console.log("Datos:", { user_id, manga_id, status, volumes_read });
+
     if (!user_id || !manga_id) {
+        console.error("ERROR: Faltan IDs obligatorios (manga)");
         return res.status(400).json({ error: "user_id y manga_id son obligatorios" });
     }
     
+    // 1. Buscamos si existe la cabecera en 'Library'
     db.query("SELECT id FROM Library WHERE user_id = ?", [user_id], (err, libRes) => {
-        if (err) return res.status(500).json({ error: err.message });
+        if (err) {
+            console.error("ERROR SQL (Buscando Library Manga):", err.sqlMessage || err);
+            return res.status(500).json({ error: err.message });
+        }
         
         const saveManga = (libraryId) => {
-            const checkSql = "SELECT * FROM mangas_library WHERE library_id = ? AND manga_id = ?";
+            console.log("Usando Library ID para Manga:", libraryId);
             
+            // 2. Verificamos si ya existe el manga en la biblioteca de ese usuario
+            const checkSql = "SELECT * FROM mangas_library WHERE library_id = ? AND manga_id = ?";
             db.query(checkSql, [libraryId, manga_id], (checkErr, checkRes) => {
-                if (checkErr) return res.status(500).json({ error: checkErr.message });
+                if (checkErr) {
+                    console.error("ERROR SQL (Check Manga):", checkErr.sqlMessage || checkErr);
+                    return res.status(500).json({ error: checkErr.message });
+                }
 
                 if (checkRes.length > 0) {
+                    // Si ya existe, actualizamos los datos
+                    console.log("Manga existente, actualizando...");
                     const updateSql = "UPDATE mangas_library SET status = ?, volumes_read = ?, personal_rating = ? WHERE library_id = ? AND manga_id = ?";
-                    db.query(updateSql, [status, volumes_read || 0, personal_rating || null, libraryId, manga_id], (err) => {
-                        if (err) return res.status(500).json({ error: err.message });
-                        res.json({ message: "Manga actualizado" });
+                    db.query(updateSql, [status, volumes_read || 0, personal_rating || null, libraryId, manga_id], (upErr) => {
+                        if (upErr) {
+                            console.error("ERROR SQL (Update Manga):", upErr.sqlMessage || upErr);
+                            return res.status(500).json({ error: upErr.message });
+                        }
+                        res.json({ message: "Manga actualizado correctamente" });
                     });
                 } else {
+                    // Si no existe, insertamos el nuevo registro
+                    console.log("Manga nuevo, insertando...");
                     const insertSql = "INSERT INTO mangas_library (library_id, manga_id, status, volumes_read, personal_rating) VALUES (?, ?, ?, ?, ?)";
-                    db.query(insertSql, [libraryId, manga_id, status, volumes_read || 0, personal_rating || null], (err) => {
-                        if (err) return res.status(500).json({ error: err.message });
-                        res.status(201).json({ message: "Manga guardado" });
+                    db.query(insertSql, [libraryId, manga_id, status, volumes_read || 0, personal_rating || null], (inErr) => {
+                        if (inErr) {
+                            console.error("ERROR SQL (Insert Manga):", inErr.sqlMessage || inErr);
+                            return res.status(500).json({ error: inErr.message });
+                        }
+                        res.status(201).json({ message: "Manga guardado correctamente" });
                     });
                 }
             });
         };
 
         if (libRes.length === 0) {
-            db.query("INSERT INTO Library (user_id) VALUES (?)", [user_id], (err, newLib) => {
-                if (err) return res.status(500).json({ error: err.message });
+            // 3. Si el usuario no tiene Library (caso raro si ya pasó por juegos, pero posible), se crea
+            console.log("Creando nueva Library para el usuario...");
+            db.query("INSERT INTO Library (user_id) VALUES (?)", [user_id], (errNew, newLib) => {
+                if (errNew) {
+                    console.error("ERROR SQL (Creando Library Manga):", errNew.sqlMessage || errNew);
+                    return res.status(500).json({ error: errNew.message });
+                }
                 saveManga(newLib.insertId);
             });
         } else {
+            // Ya tiene biblioteca, procedemos al guardado
             saveManga(libRes[0].id);
         }
     });
